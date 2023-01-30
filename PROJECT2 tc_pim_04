@@ -52,7 +52,6 @@ class project():
      menu1_of_search.append(j.text)
      print(menu1_of_search)
      print(j.text)
-     #j.click()
      time.sleep(5)
 
 
