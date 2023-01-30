@@ -1,0 +1,87 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome()
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+   
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+    
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+
+    #click admin
+    xpath_admin="//span[text()='Admin']"
+    search_admin = driver.find_element(By.XPATH,xpath_admin).click()
+    
+
+    #click user management
+    xpath_user_management="//span[text()='User Management ']"
+    search_admin = driver.find_element(By.XPATH,xpath_user_management).click()
+    
+
+    #click user 
+    xpath_user="//a[text()='Users']"
+    search_admin = driver.find_element(By.XPATH,xpath_user).click()
+   
+
+    #select user role
+    click_userrole=driver.find_element(By.XPATH,"//label[text()='User Role']/following::div[text()='-- Select --'][1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_userrole).click().perform()
+    xpath_add="//div[@role='option'][@class='oxd-select-option'][2]"
+    search_add = driver.find_element(By.XPATH,xpath_add)
+    action.move_to_element(search_add).click().perform()
+    time.sleep(1)
+    click_userrole=driver.find_element(By.XPATH,"//label[text()='User Role']/following::div[text()='Admin'][1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_userrole).click().perform()
+    xpath_add="//span[text()='ESS']"
+    search_add = driver.find_element(By.XPATH,xpath_add)
+    action.move_to_element(search_add).click().perform()
+    time.sleep(1)
+    
+    #select status
+    click_status=driver.find_element(By.XPATH,"//label[text()='Status']/following::div[1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_status).click().perform()
+    xpath_add="//span[text()='Enabled']"
+    search_add = driver.find_element(By.XPATH,xpath_add)
+    action.move_to_element(search_add).click().perform()
+    time.sleep(1)
+    click_status=driver.find_element(By.XPATH,"//label[text()='Status']/following::div[1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_status).click().perform()
+    xpath_add="//span[text()='Disabled']"
+    search_add = driver.find_element(By.XPATH,xpath_add)
+    action.move_to_element(search_add).click().perform()
+    time.sleep(1)
+    
+
+    driver.quit()
+
+us=project()
+us.test() 
+
