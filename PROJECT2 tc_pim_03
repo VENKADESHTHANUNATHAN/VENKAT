@@ -39,7 +39,6 @@ class project():
 
     #click add button
     xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
-    #search_add = driver.find_element(By.NAME,' Add ').click()
     search_addd= driver.find_element(By.XPATH,xpath_add).click()
     time.sleep(1)
     
