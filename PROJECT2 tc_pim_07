@@ -1,0 +1,117 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome() 
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+
+
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+    
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+    
+
+    #click pim
+    xpath_pim="//a[@href='/web/index.php/pim/viewPimModule']"
+    search_pim = driver.find_element(By.XPATH,xpath_pim).click()
+    
+
+    #click add button
+    xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
+    search_addd= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click firstname
+    xpath_firstname="//input [@class='oxd-input oxd-input--active orangehrm-firstname']"
+    search_firstname = driver.find_element(By.XPATH,xpath_firstname)
+    search_firstname.send_keys("Naveen")
+    time.sleep(1)
+    
+    #click Middlename
+    xpath_Middlename="//input[@class='oxd-input oxd-input--active orangehrm-middlename']"
+    search_Middlename = driver.find_element(By.XPATH,xpath_Middlename)
+    search_Middlename.send_keys("Venkat")
+    time.sleep(1)
+    
+    #click lastname
+    xpath_lastname="//input[@class='oxd-input oxd-input--active orangehrm-lastname']"
+    search_lastname = driver.find_element(By.XPATH,xpath_lastname)
+    search_lastname.send_keys("T")
+    time.sleep(1)
+    
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(1)
+
+    #click emergencycontact
+    xpath_emergency_contact="//a[text()='Emergency Contacts']"
+    search_emergency_contact = driver.find_element(By.XPATH,xpath_emergency_contact).click()
+    time.sleep(1)
+    
+    #click add button
+    xpath_add="(//button[@type='button'])[2]"
+    search_addd= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click name
+    xpath_name="(//input[@class='oxd-input oxd-input--active'])[2]"
+    search_name = driver.find_element(By.XPATH,xpath_name)
+    search_name.send_keys("Kumar")
+    time.sleep(1)
+
+    #click Relationship
+    xpath_Relationship="(//div[@class='oxd-input-group__label-wrapper'])[2]/following-sibling::div/input"
+    search_Relationship = driver.find_element(By.XPATH,xpath_Relationship)
+    search_Relationship.send_keys("Friend")
+    time.sleep(1)
+
+    #click Home Telephone
+    xpath_Home_Telephone="(//div[@class='oxd-input-group__label-wrapper'])[3]/following-sibling::div/input"
+    search_Home_Telephone= driver.find_element(By.XPATH,xpath_Home_Telephone)
+    search_Home_Telephone.send_keys("123456789")
+    time.sleep(1)
+
+    #click Mobile    
+    xpath_Mobile="(//div[@class='oxd-input-group__label-wrapper'])[4]/following-sibling::div/input"
+    search_Mobile = driver.find_element(By.XPATH,xpath_Mobile)
+    search_Mobile.send_keys("123456789")
+    time.sleep(1)
+
+    #click Work Telephone 
+    xpath_Work_Telephone="(//div[@class='oxd-input-group__label-wrapper'])[5]/following-sibling::div/input"
+    search_Work_Telephone = driver.find_element(By.XPATH,xpath_Work_Telephone)
+    search_Work_Telephone .send_keys("123456789")
+    time.sleep(1)
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(2)
+    print("successfully saved")
+
+    driver.quit()
+
+us=project()
+us.test() 
