@@ -1,0 +1,101 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome()
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+   
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+    
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+
+    #click pim
+    xpath_pim="//a[@href='/web/index.php/pim/viewPimModule']"
+    search_pim = driver.find_element(By.XPATH,xpath_pim).click()
+    time.sleep(1)
+
+    #click add button
+    xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
+    #search_add = driver.find_element(By.NAME,' Add ').click()
+    search_addd= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+    
+    #click firstname
+    xpath_firstname="//input [@class='oxd-input oxd-input--active orangehrm-firstname']"
+    search_firstname = driver.find_element(By.XPATH,xpath_firstname)
+    search_firstname.send_keys("Naveen")
+    time.sleep(1)
+
+    #click Middlename
+    xpath_Middlename="//input[@class='oxd-input oxd-input--active orangehrm-middlename']"
+    search_Middlename = driver.find_element(By.XPATH,xpath_Middlename)
+    search_Middlename.send_keys("Venkat")
+    time.sleep(1)
+
+    #click lastname
+    xpath_lastname="//input[@class='oxd-input oxd-input--active orangehrm-lastname']"
+    search_lastname = driver.find_element(By.XPATH,xpath_lastname)
+    search_lastname.send_keys("T")
+    time.sleep(1)
+
+    #click login details
+    xpath_login="//span[@class='oxd-switch-input oxd-switch-input--active --label-right']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+    time.sleep(1)
+    
+    #click username
+    xpath_username="(//input[@autocomplete='off'])[1]"
+    search_username= driver.find_element(By.XPATH,xpath_username)
+    search_username.send_keys("Venkat")
+    time.sleep(1)
+
+    #click status
+    xpath_status="(//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input'])[1]"
+    search_status= driver.find_element(By.XPATH,xpath_status).click()
+    time.sleep(1)
+
+    #click pwd
+    xpath_pwd="(//input[@autocomplete='off'])[2]"
+    search_pwd= driver.find_element(By.XPATH,xpath_pwd)
+    search_pwd.send_keys("123456qQ@")
+    time.sleep(1)
+
+    #click confirm pwd
+    xpath_confirm_pwd="(//input[@autocomplete='off'])[3]"
+    search_confirm_pwd= driver.find_element(By.XPATH,xpath_confirm_pwd)
+    search_confirm_pwd.send_keys("123456qQ@")
+    time.sleep(1)
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(1)
+    
+    driver.quit()
+
+
+us=project()
+us.test() 
