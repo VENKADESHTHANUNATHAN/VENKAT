@@ -1,0 +1,160 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome() 
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+
+
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+    
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+    
+
+    #click pim
+    xpath_pim="//a[@href='/web/index.php/pim/viewPimModule']"
+    search_pim = driver.find_element(By.XPATH,xpath_pim).click()
+    
+
+    #click add button
+    xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
+    search_addd= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click firstname
+    xpath_firstname="//input [@class='oxd-input oxd-input--active orangehrm-firstname']"
+    search_firstname = driver.find_element(By.XPATH,xpath_firstname)
+    search_firstname.send_keys("Naveen")
+    time.sleep(1)
+    
+    #click Middlename
+    xpath_Middlename="//input[@class='oxd-input oxd-input--active orangehrm-middlename']"
+    search_Middlename = driver.find_element(By.XPATH,xpath_Middlename)
+    search_Middlename.send_keys("Venkat")
+    time.sleep(1)
+    
+    #click lastname
+    xpath_lastname="//input[@class='oxd-input oxd-input--active orangehrm-lastname']"
+    search_lastname = driver.find_element(By.XPATH,xpath_lastname)
+    search_lastname.send_keys("T")
+    time.sleep(1)
+    '''
+    #click id
+    xpath_id="//input[@class='oxd-input oxd-input--active oxd-input--error']"
+    search_id = driver.find_element(By.XPATH,xpath_id)
+    search_id.send_keys(Keys.CONTROL+"a")
+    search_id.send_keys("0257")
+    '''
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(1)
+
+    #click contact_details
+    xpath_contact="//a[text()='Contact Details']"
+    search_contact = driver.find_element(By.XPATH,xpath_contact).click()
+    time.sleep(1)
+    
+    #click street1
+    xpath_street1="(//div[@class='oxd-input-group__label-wrapper'])[1]/following-sibling::div/input"
+    search_street1 = driver.find_element(By.XPATH,xpath_street1)
+    search_street1.send_keys("56")
+    time.sleep(1)
+
+    #click street2
+    xpath_street2="(//div[@class='oxd-input-group__label-wrapper'])[2]/following-sibling::div/input"
+    search_street2 = driver.find_element(By.XPATH,xpath_street2)
+    search_street2.send_keys("pillaiyar kovil")
+    time.sleep(1)
+
+    #click city
+    xpath_city="(//div[@class='oxd-input-group__label-wrapper'])[3]/following-sibling::div/input"
+    search_city = driver.find_element(By.XPATH,xpath_city)
+    search_city.send_keys("ooty")
+    time.sleep(1)
+
+    #click state
+    xpath_state="(//div[@class='oxd-input-group__label-wrapper'])[4]/following-sibling::div/input"
+    search_state = driver.find_element(By.XPATH,xpath_state)
+    search_state.send_keys("Tamilnadu")
+    time.sleep(1)
+
+    #click code    
+    xpath_code="(//div[@class='oxd-input-group__label-wrapper'])[5]/following-sibling::div/input"
+    search_code = driver.find_element(By.XPATH,xpath_code)
+    search_code.send_keys("625009")
+    time.sleep(1)
+
+    #click country
+    click_country=driver.find_element(By.XPATH,"//div[@class='oxd-select-text oxd-select-text--active']")
+    action=ActionChains(driver)
+    action.move_to_element(click_country).click().perform()
+    xpath_India="//span[text()='India']"
+    search_India = driver.find_element(By.XPATH,xpath_India)
+    action.move_to_element(search_India).click().perform()
+    time.sleep(1)
+
+    #click home   
+    xpath_home="(//div[@class='oxd-input-group__label-wrapper'])[7]/following-sibling::div/input"
+    search_home = driver.find_element(By.XPATH,xpath_home)
+    search_home .send_keys("123456789")
+    time.sleep(1)
+
+    #click mobile  
+    xpath_mobile="(//div[@class='oxd-input-group__label-wrapper'])[8]/following-sibling::div/input"
+    search_mobile= driver.find_element(By.XPATH,xpath_mobile)
+    search_mobile.send_keys("123456789")
+    time.sleep(1)
+
+    #click work 
+    xpath_work="(//div[@class='oxd-input-group__label-wrapper'])[9]/following-sibling::div/input"
+    search_work= driver.find_element(By.XPATH,xpath_work)
+    search_work.send_keys("123456789")
+    time.sleep(1)
+
+    #click email
+    xpath_email="(//div[@class='oxd-input-group__label-wrapper'])[10]/following-sibling::div/input"
+    search_email= driver.find_element(By.XPATH,xpath_email)
+    search_email.send_keys("1234@gmail.com")
+    time.sleep(1)
+
+    #click other email
+    xpath_other_email="(//div[@class='oxd-input-group__label-wrapper'])[11]/following-sibling::div/input"
+    search_other_email= driver.find_element(By.XPATH,xpath_other_email)
+    search_other_email.send_keys("12345@gmail.com")
+    time.sleep(1)
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(2)
+    print("successfully updated")
+
+    driver.quit()
+
+us=project()
+us.test() 
+    
+
