@@ -1,0 +1,152 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome() 
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+
+
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+    
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+    
+
+    #click pim
+    xpath_pim="//a[@href='/web/index.php/pim/viewPimModule']"
+    search_pim = driver.find_element(By.XPATH,xpath_pim).click()
+    
+
+    #click add button
+    xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
+    search_addd= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click firstname
+    xpath_firstname="//input [@class='oxd-input oxd-input--active orangehrm-firstname']"
+    search_firstname = driver.find_element(By.XPATH,xpath_firstname)
+    search_firstname.send_keys("Naveen")
+    time.sleep(1)
+    
+    #click Middlename
+    xpath_Middlename="//input[@class='oxd-input oxd-input--active orangehrm-middlename']"
+    search_Middlename = driver.find_element(By.XPATH,xpath_Middlename)
+    search_Middlename.send_keys("Venkat")
+    time.sleep(1)
+    
+    #click lastname
+    xpath_lastname="//input[@class='oxd-input oxd-input--active orangehrm-lastname']"
+    search_lastname = driver.find_element(By.XPATH,xpath_lastname)
+    search_lastname.send_keys("T")
+    time.sleep(1)
+    
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(1)
+
+    #click Job
+    xpath_Job="//a[text()='Job']"
+    search_Job= driver.find_element(By.XPATH,xpath_Job).click()
+    time.sleep(1)
+
+    #click Joined Date
+    xpath_Joined_Date="(//input[@class='oxd-input oxd-input--active'])[2]"
+    search_Joined_Date = driver.find_element(By.XPATH,xpath_Joined_Date)
+    search_Joined_Date.send_keys("2023-02-01")
+    time.sleep(1)
+
+    #click Job Title
+    click_Job_Title=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text oxd-select-text--active'])[1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Job_Title).click().perform()
+    xpath_Engineer="//span[text()='QA Engineer']"
+    search_Engineer = driver.find_element(By.XPATH,xpath_Engineer)
+    action.move_to_element(search_Engineer).click().perform()
+    time.sleep(1)
+
+    #click Job Category
+    click_Job_Category=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text oxd-select-text--active'])[2]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Job_Category).click().perform()
+    xpath_Professionals="//span[text()='Professionals']"
+    search_Professionals = driver.find_element(By.XPATH,xpath_Professionals)
+    action.move_to_element(search_Professionals).click().perform()
+    time.sleep(1)
+
+    #click Sub Unit
+    click_Sub=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text oxd-select-text--active'])[3]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Sub).click().perform()
+    xpath_Engineering="//span[text()='Engineering']"
+    search_Engineering = driver.find_element(By.XPATH,xpath_Engineering)
+    action.move_to_element(search_Engineering).click().perform()
+    time.sleep(1)
+
+    #click Location
+    click_Location=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text oxd-select-text--active'])[4]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Location).click().perform()
+    xpath_Canadian="//span[text()='Canadian Regional HQ']"
+    search_Canadian = driver.find_element(By.XPATH,xpath_Canadian)
+    action.move_to_element(search_Canadian).click().perform()
+    time.sleep(1)
+
+    #click Employment Status
+    click_Employment=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text oxd-select-text--active'])[5]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Employment).click().perform()
+    xpath_Full="//span[text()='Full-Time Permanent']"
+    search_Full = driver.find_element(By.XPATH,xpath_Full)
+    action.move_to_element(search_Full).click().perform()
+    time.sleep(1)
+
+    #click Include Employment Contract Details
+    xpath_add="//span[@class='oxd-switch-input oxd-switch-input--active --label-right']"
+    search_add= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click Contract Start Date
+    xpath_Contract="(//input[@class='oxd-input oxd-input--active'])[3]"
+    search_Contract = driver.find_element(By.XPATH,xpath_Contract)
+    search_Contract.send_keys("2023-01-06")
+    time.sleep(2)
+
+    #click Contract End Date
+    xpath_Contrac="//label[text()='Contract End Date']/parent::div/following-sibling::*/div/div/input"
+    search_Contrac = driver.find_element(By.XPATH,xpath_Contrac)
+    search_Contrac.send_keys("2023-01-11")
+    time.sleep(2)
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(2)
+    print("successfully updated")
+
+    driver.quit()
+
+us=project()
+us.test() 
+    
+
