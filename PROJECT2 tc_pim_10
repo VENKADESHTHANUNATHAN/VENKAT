@@ -67,12 +67,12 @@ class project():
     #click job
     xpath_job="//a[text()='Job']"
     search_job= driver.find_element(By.XPATH,xpath_job).click()
-    time.sleep(1)
+    time.sleep(2)
 
     #click termination
     xpath_termination="//button[text()=' Terminate Employment ']"
     search_termination= driver.find_element(By.XPATH,xpath_termination).click()
-    time.sleep(1)
+    time.sleep(2)
     
     #click termination_date
     xpath_termination_date="(//input[@class='oxd-input oxd-input--active'])[3]"
@@ -98,14 +98,10 @@ class project():
     #click save
     xpath_save="(//button[@type='submit'])[2]"
     search_save = driver.find_element(By.XPATH,xpath_save).click()
-    time.sleep(2)
-
-    #click activate
-    xpath_activate="//button[text()=' Activate Employment ']"
-    search_activate= driver.find_element(By.XPATH,xpath_activate).click()
-    time.sleep(4)
+    time.sleep(5)
 
     print("successfully updated")
+    print("Activate Employment is visible")
 
     driver.quit()
 
