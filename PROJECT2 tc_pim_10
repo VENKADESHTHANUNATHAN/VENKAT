@@ -99,6 +99,11 @@ class project():
     xpath_save="(//button[@type='submit'])[2]"
     search_save = driver.find_element(By.XPATH,xpath_save).click()
     time.sleep(5)
+    
+    #scroll down
+    activate= driver.find_element(By.XPATH,"//button[text()=' Activate Employment ']")
+    driver.execute_script("arguments[0].scrollIntoView();",activate)
+    time.sleep(5)
 
     print("successfully updated")
     print("Activate Employment is visible")
