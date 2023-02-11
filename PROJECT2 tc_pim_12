@@ -1,0 +1,163 @@
+from selenium import webdriver
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+
+class project():
+ def test(self):
+    #open browser
+    driver=webdriver.Chrome() 
+    baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    driver.get(baseurl)
+    driver.implicitly_wait(10)
+    
+
+    #maximize window
+    driver.maximize_window()
+
+
+    #search username
+    search_username = driver.find_element(By.NAME,'username')
+    search_username.send_keys("Admin")
+
+    #search password 
+    search_password = driver.find_element(By.NAME,'password')
+    search_password.send_keys("admin123")
+
+    #click login
+    xpath_login="//button[@type='submit']"
+    search_login = driver.find_element(By.XPATH,xpath_login).click()
+    
+    #click pim
+    xpath_pim="//a[@href='/web/index.php/pim/viewPimModule']"
+    search_pim = driver.find_element(By.XPATH,xpath_pim).click()
+
+    #click add button
+    xpath_add="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"
+    search_add= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click firstname
+    xpath_firstname="//input [@class='oxd-input oxd-input--active orangehrm-firstname']"
+    search_firstname = driver.find_element(By.XPATH,xpath_firstname)
+    search_firstname.send_keys("Naveen")
+    time.sleep(1)
+    
+    #click Middlename
+    xpath_Middlename="//input[@class='oxd-input oxd-input--active orangehrm-middlename']"
+    search_Middlename = driver.find_element(By.XPATH,xpath_Middlename)
+    search_Middlename.send_keys("Venkat")
+    time.sleep(1)
+    
+    #click lastname
+    xpath_lastname="//input[@class='oxd-input oxd-input--active orangehrm-lastname']"
+    search_lastname = driver.find_element(By.XPATH,xpath_lastname)
+    search_lastname.send_keys("T")
+    time.sleep(1)
+    
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(1)
+
+    #click salary
+    xpath_Job="//a[text()='Salary']"
+    search_Job= driver.find_element(By.XPATH,xpath_Job).click()
+    time.sleep(1)
+
+    #click add button
+    xpath_add="(//button[@class='oxd-button oxd-button--medium oxd-button--text'])[1]"
+    search_add= driver.find_element(By.XPATH,xpath_add).click()
+    time.sleep(1)
+
+    #click salaryComponent
+    xpath_salary_Component="(//input[@class='oxd-input oxd-input--active'])[2]"
+    search_salary_Component = driver.find_element(By.XPATH,xpath_salary_Component)
+    search_salary_Component.send_keys("salary")
+    time.sleep(1)
+
+    #click pay_grade
+    click_pay_grade=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text-input'])[1]")
+    action=ActionChains(driver)
+    action.move_to_element(click_pay_grade).click().perform()
+    xpath_grade1 ="//span[text()='Grade 1']"
+    search_grade1 = driver.find_element(By.XPATH,xpath_grade1)
+    action.move_to_element(search_grade1 ).click().perform()
+    time.sleep(2)
+
+    #click frequency
+    click_pay_frequency=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text-input'])[2]")
+    action=ActionChains(driver)
+    action.move_to_element(click_pay_frequency).click().perform()
+    xpath_Hourly="//span[text()='Hourly']"
+    search_Hourly= driver.find_element(By.XPATH,xpath_Hourly)
+    action.move_to_element(search_Hourly).click().perform()
+    time.sleep(2)
+
+    #click currency
+    click_currency=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text-input'])[3]")
+    action=ActionChains(driver)
+    action.move_to_element(click_currency).click().perform()
+    xpath_US="//span[text()='United States Dollar']"
+    search_US= driver.find_element(By.XPATH,xpath_US)
+    action.move_to_element(search_US).click().perform()
+    time.sleep(2)
+
+    #click amount
+    xpath_amount="(//input[@class='oxd-input oxd-input--active'])[3]"
+    search_amount = driver.find_element(By.XPATH,xpath_amount)
+    search_amount.send_keys("55000")
+    time.sleep(1)
+
+    #click comments
+    xpath_comments="//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']"
+    search_comments = driver.find_element(By.XPATH,xpath_comments)
+    search_comments.send_keys("No")
+    time.sleep(1)
+
+    #click Include Direct Deposit Details
+    xpath_Details="//span[@class='oxd-switch-input oxd-switch-input--active --label-right']"
+    search_Details= driver.find_element(By.XPATH,xpath_Details).click()
+    time.sleep(1)
+
+    #click Account Number
+    xpath_Account_Number="(//input[@class='oxd-input oxd-input--active'])[4]"
+    search_Account_Number = driver.find_element(By.XPATH,xpath_Account_Number)
+    search_Account_Number.send_keys("123456789")
+    time.sleep(1)
+
+    #click Account type
+    click_Account_type=driver.find_element(By.XPATH,"(//div[@class='oxd-select-text-input'])[4]")
+    action=ActionChains(driver)
+    action.move_to_element(click_Account_type).click().perform()
+    xpath_savings="//span[text()='Savings']"
+    search_savings= driver.find_element(By.XPATH,xpath_savings)
+    action.move_to_element(search_savings).click().perform()
+    time.sleep(2)
+
+    #click Routing Number
+    xpath_Routing_Number="(//input[@class='oxd-input oxd-input--active'])[5]"
+    search_Routing_Number = driver.find_element(By.XPATH,xpath_Routing_Number)
+    search_Routing_Number.send_keys("12345")
+    time.sleep(1)
+
+    #click Amount deposit
+    xpath_Amountdeposit="(//label[text()='Amount'])[2]/parent::div/following-sibling::div/child::input"
+    search_Amountdeposit = driver.find_element(By.XPATH,xpath_Amountdeposit)
+    search_Amountdeposit.send_keys("5000")
+    time.sleep(2)
+
+    #click save
+    xpath_save="//button[@type='submit']"
+    search_save = driver.find_element(By.XPATH,xpath_save).click()
+    time.sleep(7)
+
+    print("successfully saved")
+
+    driver.quit()
+
+us=project()
+us.test() 
+    
